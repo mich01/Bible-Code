@@ -1,5 +1,3 @@
-package TextBasedCipher;
-
 public class HiddenMessage
 {
     public static int Distance=0;
