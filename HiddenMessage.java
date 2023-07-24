@@ -1,3 +1,8 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.StringBufferInputStream;
+
 public class HiddenMessage
 {
     public static int Distance=0;
@@ -16,8 +21,18 @@ public class HiddenMessage
         String Found ="NotFound";
         String Message_Cipher="Hello there and warm greetings to you my friends.? Todd did you hear about this years calls about party for the initiation of news anchor list joinning communnial agency? I want you to be our custodian and lead the team coordinating retailers attendance and attire for the event. Also make sure three slots are set asside. Estimate all calls and do aggregate all entries.";
         String Key = "atm";
+        BufferedReader BF = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println(Message_Cipher);
+        System.out.println("Enter the Key to extract the hidden message\t");
+        try {
+            Key = BF.readLine();
+            System.out.println("They Key Entered is: "+Key);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Starting Extraction "+Key);
         HiddenMessage =  new StringBuilder();
-        //System.out.println("Test");
+        System.out.println("Test");
         for (int i=0;i<Message_Cipher.length();i=i+Keypos1)
         {
             if(Decrypt(i, Message_Cipher, Key).equals("Found"))
